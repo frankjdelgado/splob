@@ -1,0 +1,96 @@
+body{
+	font-family: 'Noto Sans', sans-serif;
+}
+header{
+	background-color: #F5F5F5;
+	color: #535353;
+}
+
+div.logo{
+	font-family: 'Swanky and Moo Moo', cursive !important;
+	display:inline-block;
+}
+.logo:hover{
+	cursor:default;
+}
+.title{
+	display:inline-block;
+	padding: 0 2em;
+}
+.title a{
+	color: #535353;
+}
+.title a:hover{
+	text-decoration: none;
+}
+li{
+	list-style: none;
+}
+.sign{
+
+	padding:1em 0 1em 2em;
+}
+.sign li{
+	display: inline-block;
+	padding-left: 2em;
+}
+.sign a{
+	color:#535353;
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 0.9em;
+	position: relative;
+}
+.sign a:after,.sign a:before{
+	position:absolute;
+	content: ' ';
+	background-color: #535353;
+	bottom: -0.3em;
+	padding:0.1em;
+	left:50%;
+	right:50%;
+	-webkit-transition: all 300ms ease;
+	-moz-transition: all 300ms ease;
+	-ms-transition: all 300ms ease;
+	-o-transition: all 300ms ease;
+	transition: all 300ms ease;
+}
+.sign a:hover::after{
+	right:-0.7em;
+}
+.sign a:hover::before{
+	left:-0.7em;
+}
+.sign a:hover{
+	text-decoration: none;
+	cursor: pointer;
+}
+.light-orange{
+	background-color: #fe7320;
+}
+.dark-orange{
+	background-color: #eb2234;
+}
+
+.light-green{
+	background-color: #02c485;
+}
+
+.dark-green{
+	background-color: #07a769;
+}
+
+.light-blue{
+	background-color: #0083d1;
+}
+.light-yellow{
+	background-color: #FAF269;
+}
+
+.dark-blue{
+	background-color: #1560a3;
+}
+
+.darker-blue{
+	background-color: #111f4c;
+}
