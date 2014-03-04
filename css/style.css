@@ -205,3 +205,26 @@ div.logo{
 .feeds li:hover .icon-bubble,.feeds li:hover .icon-calendar{
 	border:5px solid #4994CE;
 }
+
+.back-to-top {
+    position: fixed;
+    bottom: 1em;
+    right: 1em;
+    padding:0.3em;
+    border-radius: 9999px;
+    background-color: rgba(73,148,206,0.5);
+   	color:#ffffff;
+    font-size: 30px;
+    display:none;
+    -webkit-transition: all 300ms ease;
+	-moz-transition: all 300ms ease;
+	-ms-transition: all 300ms ease;
+	-o-transition: all 300ms ease;
+	transition: all 300ms ease;
+}
+
+.back-to-top:hover { 
+	text-decoration: none;   
+	color:#ffffff;
+    background-color:  rgba(73,148,206,1) ;
+}
