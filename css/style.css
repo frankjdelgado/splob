@@ -1,8 +1,9 @@
 body{
 	font-family: 'Noto Sans', sans-serif;
+	background-color: #EFEFEE;
 }
 header{
-	background-color: #F5F5F5;
+	background-color: #ffffff;
 	color: #535353;
 }
 
@@ -93,4 +94,53 @@ li{
 
 .darker-blue{
 	background-color: #111f4c;
+}
+.border{
+	height:1px;
+}
+.bg{
+	padding-top:1px;
+	width:100%;
+	height:auto;
+}
+
+.profile{
+	border:0.4em solid #B6CACF;
+	border-radius:4em;
+	width:8em;
+	height:8em;
+}
+
+.vs{
+	margin-top: 8em; 
+}
+
+#newfeed {
+   display:inline-block;
+   width: 80%; 
+   min-height:8em; 
+   background: #B6CACF;
+   position: absolute;
+   -moz-border-radius: 10px; 
+   -webkit-border-radius: 10px; 
+   border-radius: 10px;
+}
+#newfeed:before {
+   content:"";
+   position: absolute;
+   width: 0;
+   height: 0;
+   border-top: 13px solid transparent;
+   border-right: 26px solid #B6CACF;
+   border-bottom: 13px solid transparent;
+   margin: 13px 0 0 -25px;
+}
+.formWrapper{
+	position:relative;
+	min-height:8em;
+	padding:1em;
+}
+
+.formWrapper .form-horizontal .form-group {
+	margin:0;
 }
