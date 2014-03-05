@@ -1,6 +1,6 @@
 body{
 	font-family: 'Noto Sans', sans-serif;
-	background-color: #EFEFEE;
+	background-color: #E5E5E5;
 }
 header{
 	background-color: #ffffff;
@@ -127,14 +127,13 @@ div.logo{
 .status{
 	padding-bottom: 5em;
 }
-.newfeed{
-	padding-top: 2em;
-	padding-left: 2em;
-}
+
 #bubble {
-   width: 100%; 
    background:#45709E;
    position: absolute;
+   right:15px;
+   left:14em;
+   top:2em;
    -moz-border-radius: 10px; 
    -webkit-border-radius: 10px; 
    border-radius: 10px;
@@ -159,6 +158,10 @@ div.logo{
 }
 .feeds li{
 	position:relative;
+	z-index: 2;
+}
+.feeds{
+	padding-left: 1.5em;
 }
 .feeds p{
 	margin:0;
@@ -227,4 +230,34 @@ div.logo{
 	text-decoration: none;   
 	color:#ffffff;
     background-color:  rgba(73,148,206,1) ;
+}
+.page-header{
+	border-bottom: 1px solid #333;
+}
+
+.evento{
+	margin-left: 0;
+	margin-right: 0;
+	padding: 1.5em;
+	box-shadow: none;
+}
+.box-wrapper{
+	padding: 1.5em;
+	border:1px  #DDD solid;
+	background-color: #FFF;
+	border-radius: 3px;
+}
+.evento .input-group{
+	margin-bottom: 0.8em;
+}
+.evento .input-group-addon{
+	color:#333;
+	font-size: 16px;
+}
+.evento h3{
+	margin-top: 0;
+	margin-bottom: 15px;
+}
+.input-group-addon{
+	background-color: rgba(73,148,206,0.5);
 }

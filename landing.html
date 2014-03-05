@@ -50,103 +50,127 @@
 	<div class="container vs">
 		<div class="row status">
 			<!-- Solo si esta login -->
-			<div class="profile">
-				<img src="img/profile.gif" >
-			</div>
-			<div class="col-md-5 newfeed">
+			<div class="col-md-7">
+				<div class="profile">
+					<img src="img/profile.gif" >
+				</div>
+
 				<div id="bubble">
 					<div class="formWrapper">
-
 						<form class="form-horizontal" role="form">
-
-						  <div class="form-group">
+						 	<div class="form-group">
 						      <textarea  class="form-control" name="" id="" cols="30" rows="3"></textarea>
 						  </div>
-
 						</form>
-						
 					</div>
 				</div>
 			</div>
 			<!-- Solo si esta login -->
+			<div class="col-md-offset-1 col-md-4">
+				<div class="evento box-wrapper">
+					<h3>Evento</h3>
+					<form action="#"  role="form">
+						<div class="input-group">
+						  <span class="input-group-addon"><span class="icon-calendar"></span></span>
+						  <input type="date" class="form-control" placeholder="Fecha Evento">
+						</div>
+						<div class="input-group">
+						  <span class="input-group-addon icon-paragraph-left"></span>
+						  <input type="text" class="form-control" placeholder="Título">
+						</div>
+						<div class="input-group">
+						  <span class="input-group-addon icon-paperclip"></span>
+						  <input type="file" class="form-control">
+						</div>
+						<div class="text-right">
+							<input type="submit" value="Publicar" class="btn btn-default">
+						</div>
+					</form>
+				</div>
+			</div>
 		</div>
 
 		<div class="row">
 			<div class="col-md-7">
-				<ul class="feeds">
-					<li>
-						<div class="timeline"></div>
-						<div class="icon-bubble"></div>
-						<div class="feedContent">
-							<img src="" alt="">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui, esse, voluptatem architecto excepturi alias iusto minus deserunt praesentium voluptatum aperiam optio vitae facere tempora eius autem veniam enim accusamus perferendis.</p>	
-						</div>
-					</li>
-					<li>
-						<div class="timeline"></div>
-						<span class="icon-calendar"></span>
-						<div class="feedContent">
-							<img src="" alt="">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui, esse, voluptatem architecto excepturi alias iusto minus deserunt praesentium voluptatum aperiam optio vitae facere tempora eius autem veniam enim accusamus perferendis.</p>	
-						</div>
-					</li>
-					<li>
-						<div class="timeline"></div>
-						<span class="icon-calendar"></span>
-						<div class="feedContent">
-							<img src="" alt="">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui, esse, voluptatem architecto excepturi alias iusto minus deserunt praesentium voluptatum aperiam optio vitae facere tempora eius autem veniam enim accusamus perferendis.</p>	
-						</div>
-					</li>
-					<li>
-						<div class="timeline"></div>
-						<span class="icon-calendar"></span>
-						<div class="feedContent">
-							<img src="" alt="">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui, esse, voluptatem architecto excepturi alias iusto minus deserunt praesentium voluptatum aperiam optio vitae facere tempora eius autem veniam enim accusamus perferendis.</p>	
-						</div>
-					</li>
-					<li>
-						<div class="timeline"></div>
-						<div class="icon-bubble"></div>
-						<div class="feedContent">
-							<img src="" alt="">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui, esse, voluptatem architecto excepturi alias iusto minus deserunt praesentium voluptatum aperiam optio vitae facere tempora eius autem veniam enim accusamus perferendis.</p>	
-						</div>
-					</li>
-					<li>
-						<div class="timeline"></div>
-						<div class="icon-bubble"></div>
-						<div class="feedContent">
-							<img src="" alt="">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui, esse, voluptatem architecto excepturi alias iusto minus deserunt praesentium voluptatum aperiam optio vitae facere tempora eius autem veniam enim accusamus perferendis.</p>	
-						</div>
-					</li>
-					<li>
-						<div class="timeline"></div>
-						<div class="icon-bubble"></div>
-						<div class="feedContent">
-							<img src="" alt="">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui, esse, voluptatem architecto excepturi alias iusto minus deserunt praesentium voluptatum aperiam optio vitae facere tempora eius autem veniam enim accusamus perferendis.</p>	
-						</div>
-					</li>
-					<li>
-						<div class="timeline"></div>
-						<div class="icon-bubble"></div>
-						<div class="feedContent">
-							<img src="" alt="">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui, esse, voluptatem architecto excepturi alias iusto minus deserunt praesentium voluptatum aperiam optio vitae facere tempora eius autem veniam enim accusamus perferendis.</p>	
-						</div>
-					</li>
-					<li>
-						<div class="timeline"></div>
-						<div class="icon-bubble"></div>
-						<div class="feedContent">
-							<img src="" alt="">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui, esse, voluptatem architecto excepturi alias iusto minus deserunt praesentium voluptatum aperiam optio vitae facere tempora eius autem veniam enim accusamus perferendis.</p>	
-						</div>
-					</li>
-				</ul>
+				<div class="box-wrapper">
+					<ul class="feeds">
+						<li>
+							<div class="icon-bubble"></div>
+							<div class="timeline"></div>
+							<div class="feedContent">
+								<img src="" alt="">
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui, esse, voluptatem architecto excepturi alias iusto minus deserunt praesentium voluptatum aperiam optio vitae facere tempora eius autem veniam enim accusamus perferendis.</p>	
+							</div>
+						</li>
+						<li>
+							<div class="timeline"></div>
+							<span class="icon-calendar"></span>
+							<div class="feedContent">
+								<img src="" alt="">
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui, esse, voluptatem architecto excepturi alias iusto minus deserunt praesentium voluptatum aperiam optio vitae facere tempora eius autem veniam enim accusamus perferendis.</p>	
+							</div>
+						</li>
+						<li>
+							<div class="timeline"></div>
+							<span class="icon-calendar"></span>
+							<div class="feedContent">
+								<img src="" alt="">
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui, esse, voluptatem architecto excepturi alias iusto minus deserunt praesentium voluptatum aperiam optio vitae facere tempora eius autem veniam enim accusamus perferendis.</p>	
+							</div>
+						</li>
+						<li>
+							<div class="timeline"></div>
+							<span class="icon-calendar"></span>
+							<div class="feedContent">
+								<img src="" alt="">
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui, esse, voluptatem architecto excepturi alias iusto minus deserunt praesentium voluptatum aperiam optio vitae facere tempora eius autem veniam enim accusamus perferendis.</p>	
+							</div>
+						</li>
+						<li>
+							<div class="timeline"></div>
+							<div class="icon-bubble"></div>
+							<div class="feedContent">
+								<img src="" alt="">
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui, esse, voluptatem architecto excepturi alias iusto minus deserunt praesentium voluptatum aperiam optio vitae facere tempora eius autem veniam enim accusamus perferendis.</p>	
+							</div>
+						</li>
+						<li>
+							<div class="timeline"></div>
+							<div class="icon-bubble"></div>
+							<div class="feedContent">
+								<img src="" alt="">
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui, esse, voluptatem architecto excepturi alias iusto minus deserunt praesentium voluptatum aperiam optio vitae facere tempora eius autem veniam enim accusamus perferendis.</p>	
+							</div>
+						</li>
+						<li>
+							<div class="timeline"></div>
+							<div class="icon-bubble"></div>
+							<div class="feedContent">
+								<img src="" alt="">
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui, esse, voluptatem architecto excepturi alias iusto minus deserunt praesentium voluptatum aperiam optio vitae facere tempora eius autem veniam enim accusamus perferendis.</p>	
+							</div>
+						</li>
+						<li>
+							<div class="timeline"></div>
+							<div class="icon-bubble"></div>
+							<div class="feedContent">
+								<img src="" alt="">
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui, esse, voluptatem architecto excepturi alias iusto minus deserunt praesentium voluptatum aperiam optio vitae facere tempora eius autem veniam enim accusamus perferendis.</p>	
+							</div>
+						</li>
+						<li>
+							<div class="timeline"></div>
+							<div class="icon-bubble"></div>
+							<div class="feedContent">
+								<img src="" alt="">
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui, esse, voluptatem architecto excepturi alias iusto minus deserunt praesentium voluptatum aperiam optio vitae facere tempora eius autem veniam enim accusamus perferendis.</p>	
+							</div>
+						</li>
+					</ul>	
+				</div>
+			</div>
+			<div class="col-md-5">
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore, illo, debitis, tenetur, illum maxime laborum consequatur aut repellendus aperiam iusto ea laboriosam provident doloremque iste possimus et delectus natus sequi.</p>
 			</div>
 		</div>
 	</div>
