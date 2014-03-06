@@ -1,6 +1,6 @@
 body{
 	font-family: 'Noto Sans', sans-serif;
-	background-color: #E5E5E5;
+	background: url(../img/stardust.png) repeat;
 }
 header{
 	background-color: #ffffff;
@@ -121,19 +121,20 @@ div.logo{
 }
 
 .vs{
-	margin-top: 8em; 
+	margin-top: 2.5em; 
 }
 
 .status{
-	padding-bottom: 5em;
+	padding-bottom: 2em;
+	position:relative;
 }
 
 #bubble {
    background:#45709E;
    position: absolute;
    right:15px;
-   left:14em;
-   top:2em;
+   left:12em;
+   top:0em;
    -moz-border-radius: 10px; 
    -webkit-border-radius: 10px; 
    border-radius: 10px;
@@ -144,9 +145,9 @@ div.logo{
    width: 0;
    height: 0;
    border-top: 13px solid transparent;
-   border-right: 26px solid #45709E;
+   border-right: 44px solid #45709E;
    border-bottom: 13px solid transparent;
-   margin: 13px 0 0 -25px;
+   margin: 16px 0 0 -22px;
 }
 .formWrapper{
 	position:relative;
@@ -260,4 +261,19 @@ div.logo{
 }
 .input-group-addon{
 	background-color: rgba(73,148,206,0.5);
+}
+.submenu{
+	background-color: #E5E5E5;
+}
+.submenu ul{
+	margin:0;
+	padding-top:.5em;
+	padding-bottom:.5em;
+}
+.submenu a{
+	color:#333333;
+	font-size: 0.9em;
+}
+.submenu a:hover{
+	text-decoration: none;
 }
