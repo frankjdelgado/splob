@@ -125,16 +125,16 @@ div.logo{
 }
 
 .status{
-	padding-bottom: 2em;
+	padding-bottom: 3em;
 	position:relative;
 }
 
 #bubble {
    background:#45709E;
    position: absolute;
-   right:15px;
-   left:12em;
-   top:0em;
+   right:0;
+   left:11em;
+   top:3.2em;
    -moz-border-radius: 10px; 
    -webkit-border-radius: 10px; 
    border-radius: 10px;
@@ -148,6 +148,9 @@ div.logo{
    border-right: 44px solid #45709E;
    border-bottom: 13px solid transparent;
    margin: 16px 0 0 -22px;
+}
+#bubble textarea{
+	font-size: 12px;
 }
 .formWrapper{
 	position:relative;
@@ -166,6 +169,7 @@ div.logo{
 }
 .feeds p{
 	margin:0;
+	font-size: 13px;
 }
 .feedContent{
 	display:inline-block;
@@ -178,7 +182,7 @@ div.logo{
 	vertical-align: top;
 	display:inline-block;
 	border:5px solid #FFE85C;;
-	border-radius: 30px; 
+	border-radius: 9999px; 
 	font-size: 25px;
 	background-color: #ffffff;
 	padding:.5em;
@@ -204,10 +208,11 @@ div.logo{
 }
 .feeds li:hover .timeline{
 	background-color: #4994CE;
+	width:9px;
 }
 
 .feeds li:hover .icon-bubble,.feeds li:hover .icon-calendar{
-	border:5px solid #4994CE;
+	border:8px solid #4994CE;
 }
 
 .back-to-top {
@@ -243,7 +248,7 @@ div.logo{
 	box-shadow: none;
 }
 .box-wrapper{
-	padding: 1.5em;
+	padding: 1em 1em 1.5em 1em ;
 	border:1px  #DDD solid;
 	background-color: #FFF;
 	border-radius: 3px;
@@ -253,7 +258,7 @@ div.logo{
 }
 .evento .input-group-addon{
 	color:#333;
-	font-size: 16px;
+	font-size: 15px;
 }
 .evento h3{
 	margin-top: 0;
@@ -263,10 +268,11 @@ div.logo{
 	background-color: rgba(73,148,206,0.5);
 }
 .submenu{
-	background-color: #E5E5E5;
+	background-color: #F5F5F5;
 }
 .submenu ul{
 	margin:0;
+	padding-left: 0;
 	padding-top:.5em;
 	padding-bottom:.5em;
 }
@@ -276,4 +282,16 @@ div.logo{
 }
 .submenu a:hover{
 	text-decoration: none;
+}
+
+.sectionTitle{
+	color:#999;
+	font-size: 12px;
+	border-bottom: 1px solid #E5E5E5;
+	position: relative;
+	padding-bottom: 11px;
+	margin-bottom: 1.5em;
+}
+.sectionTitle{
+
 }
