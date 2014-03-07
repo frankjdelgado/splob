@@ -13,10 +13,14 @@ function smooth(){
         event.preventDefault();
         $('html, body').animate({scrollTop: 0}, duration);
         return false;
-    })
+    });
 }
 
 $(document).ready(function(){
     smooth();
+
+    $('#calendar').fullCalendar({
+        // put your options and callbacks here
+    });
     
 });
