@@ -10,10 +10,7 @@ header{
 li{
 	list-style: none;
 }
-textarea{
-	max-width: 100%;
-	max-height:100%;
-}
+
 div.logo{
 	font-family: 'Swanky and Moo Moo', cursive !important;
 	display:inline-block;
@@ -151,6 +148,8 @@ div.logo{
 }
 #bubble textarea{
 	font-size: 12px;
+	max-width: 100%;
+	resize:none;
 }
 .formWrapper{
 	position:relative;
@@ -208,11 +207,10 @@ div.logo{
 }
 .feeds li:hover .timeline{
 	background-color: #4994CE;
-	width:9px;
 }
 
 .feeds li:hover .icon-bubble,.feeds li:hover .icon-calendar{
-	border:8px solid #4994CE;
+	border:5px solid #4994CE;
 }
 
 .back-to-top {
@@ -291,7 +289,4 @@ div.logo{
 	position: relative;
 	padding-bottom: 11px;
 	margin-bottom: 1.5em;
-}
-.sectionTitle{
-
 }
