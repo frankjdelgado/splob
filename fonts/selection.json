@@ -25,7 +25,7 @@
 				"ligatures": ""
 			},
 			"setIdx": 0,
-			"iconIdx": 112
+			"iconIdx": 0
 		},
 		{
 			"icon": {
@@ -50,7 +50,7 @@
 				"ligatures": ""
 			},
 			"setIdx": 0,
-			"iconIdx": 184
+			"iconIdx": 1
 		},
 		{
 			"icon": {
@@ -76,7 +76,7 @@
 				"ligatures": ""
 			},
 			"setIdx": 0,
-			"iconIdx": 168
+			"iconIdx": 2
 		},
 		{
 			"icon": {
@@ -98,7 +98,7 @@
 				"ligatures": ""
 			},
 			"setIdx": 0,
-			"iconIdx": 361
+			"iconIdx": 3
 		},
 		{
 			"icon": {
@@ -123,7 +123,7 @@
 				"ligatures": ""
 			},
 			"setIdx": 0,
-			"iconIdx": 120
+			"iconIdx": 4
 		},
 		{
 			"icon": {
@@ -146,7 +146,7 @@
 				"ligatures": ""
 			},
 			"setIdx": 0,
-			"iconIdx": 72
+			"iconIdx": 5
 		},
 		{
 			"icon": {
@@ -171,7 +171,7 @@
 				"ligatures": ""
 			},
 			"setIdx": 0,
-			"iconIdx": 78
+			"iconIdx": 6
 		},
 		{
 			"icon": {
@@ -195,7 +195,7 @@
 				"ligatures": ""
 			},
 			"setIdx": 0,
-			"iconIdx": 106
+			"iconIdx": 7
 		},
 		{
 			"icon": {
@@ -217,8 +217,8 @@
 				"name": "arrow-up",
 				"ligatures": ""
 			},
-			"setIdx": 3,
-			"iconIdx": 207
+			"setIdx": 0,
+			"iconIdx": 8
 		},
 		{
 			"icon": {
@@ -239,8 +239,8 @@
 				"name": "paperclip",
 				"ligatures": ""
 			},
-			"setIdx": 3,
-			"iconIdx": 8
+			"setIdx": 0,
+			"iconIdx": 9
 		},
 		{
 			"icon": {
@@ -264,7 +264,31 @@
 				"ligatures": ""
 			},
 			"setIdx": 0,
-			"iconIdx": 336
+			"iconIdx": 10
+		},
+		{
+			"icon": {
+				"paths": [
+					"M992.262 871.396l-242.552-206.294c-25.074-22.566-51.89-32.926-73.552-31.926 57.256-67.068 91.842-154.078 91.842-249.176 0-212.078-171.922-384-384-384-212.076 0-384 171.922-384 384 0 212.078 171.922 384 384 384 95.098 0 182.108-34.586 249.176-91.844-1 21.662 9.36 48.478 31.926 73.552l206.294 242.552c35.322 39.246 93.022 42.554 128.22 7.356s31.892-92.898-7.354-128.22zM384 640c-141.384 0-256-114.616-256-256s114.616-256 256-256 256 114.616 256 256-114.614 256-256 256z"
+				],
+				"tags": [
+					"search",
+					"magnifier",
+					"lookup",
+					"find"
+				],
+				"grid": 16
+			},
+			"properties": {
+				"id": 127,
+				"order": 12,
+				"prevSize": 32,
+				"code": 58891,
+				"name": "search",
+				"ligatures": ""
+			},
+			"setIdx": 1,
+			"iconIdx": 127
 		}
 	],
 	"height": 1024,
