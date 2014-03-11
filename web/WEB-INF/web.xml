@@ -4,13 +4,25 @@
         <servlet-name>despachador</servlet-name>
         <servlet-class>control.despachador</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>registrarUsuario</servlet-name>
+        <servlet-class>control.registrarUsuario</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>despachador</servlet-name>
         <url-pattern>/despachador</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>registrarUsuario</servlet-name>
+        <url-pattern>/registrarUsuario</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
+    <welcome-file-list>
+        <welcome-file>landing.html</welcome-file>
+        <welcome-file>index.html</welcome-file>
+    </welcome-file-list>
 </web-app>

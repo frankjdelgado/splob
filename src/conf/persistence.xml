@@ -11,6 +11,8 @@
     <class>model.TEquipo</class>
     <class>model.TUsuarioEquipo</class>
     <class>model.TCategoria</class>
+    <class>control.VPostHashtag</class>
+    <class>model.VPostHashtag</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mariadb://marvingonzalez.no-ip.org:3306/ati_proyecto?zeroDateTimeBehavior=convertToNull"/>
