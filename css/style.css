@@ -126,17 +126,13 @@ div.logo{
 	position:relative;
 }
 
-#bubble {
-   background:#45709E;
+.bubble {
    position: absolute;
    right:0;
    left:11em;
    top:3.2em;
-   -moz-border-radius: 10px; 
-   -webkit-border-radius: 10px; 
-   border-radius: 10px;
 }
-#bubble:before {
+.bubble:before {
    content:"";
    position: absolute;
    width: 0;
@@ -146,18 +142,26 @@ div.logo{
    border-bottom: 13px solid transparent;
    margin: 16px 0 0 -22px;
 }
-#bubble textarea{
+.bubble textarea{
 	font-size: 12px;
 	max-width: 100%;
 	resize:none;
 }
+.inputWrapper{
+	margin-top: 0.5em;
+	background-color: #fff;
+}
 .formWrapper{
 	position:relative;
 	padding:.5em;
+	background-color: #45709E;
+	 -moz-border-radius: 10px; 
+   -webkit-border-radius: 10px; 
+   border-radius: 10px;
 }
 
-.formWrapper .form-horizontal .form-group {
-	margin:0;
+.bubble .form-group {
+	margin:0 !important;
 }
 .feeds li{
 	position:relative;
@@ -176,6 +180,10 @@ div.logo{
 	padding-left: 1em;
 	padding-bottom: 2em;
 	vertical-align: top;
+}
+.feedContent img{
+	max-width: 350px;
+	max-height: 200px;
 }
 .feeds .icon-bubble, .feeds .icon-calendar{
 	vertical-align: top;
@@ -329,3 +337,4 @@ div.logo{
 	-webkit-box-shadow: 0 0 1px 1px #E0E0E0;
 	box-shadow: 0 0 1px 1px #E0E0E0;
 }
+

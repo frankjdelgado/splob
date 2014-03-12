@@ -24,7 +24,7 @@
 			</div>
 			<div class="col-md-5">
 				<form action="" class="searchbox">
-					<input type="text" class="searchbox" placeholder="Busqueda">
+					<input type="text" class="searchbox" placeholder="Busqueda" required>
 				</form>
 			</div>
 			<div class="col-md-3">
@@ -64,6 +64,14 @@
 
 <div class="container vs  box-wrapper">
 	<div class="row">
+		<div class="col-md-7">
+			<div class="alert alert-danger alert-dismissable ">
+			  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+			  <strong>Warning!</strong> Al parecer hubo un error con tu solicitud =(
+			</div>
+		</div>
+	</div>
+	<div class="row">
 		<!-- Solo si esta login -->
 		<div class="col-md-7">
 			<div class="status">
@@ -75,15 +83,18 @@
 					<img src="img/profile.gif" >
 				</div>
 
-				<div id="bubble">
-					<div class="formWrapper">
-						<form class="form-horizontal" role="form">
-						 	<div class="form-group">
-						      <textarea  class="form-control" name="" id="" cols="30" rows="2"></textarea>
-						  </div>
-						</form>
+				<form action="#" id="feed" method="POST">
+					<div class="bubble">
+						<div class="formWrapper">
+							<div class="form-group">
+						      <textarea  class="form-control" name="content" id="" cols="30" rows="2" required></textarea>
+							</div>
+						</div>
+						<div class="inputWrapper text-right">
+							<input type="submit" value="Enviar" class="btn-sm btn btn-default">
+						</div>
 					</div>
-				</div>
+				</form>
 
 				<div class="clearfix"></div>
 			</div>
@@ -98,7 +109,7 @@
 						<div class="timeline"></div>
 						<span class="icon-bubble"></span>
 						<div class="feedContent">
-							<img src="" alt="">
+							<img src="img/profile.gif" alt="">
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui, esse, voluptatem architecto excepturi alias iusto minus deserunt praesentium voluptatum aperiam optio vitae facere tempora eius autem veniam enim accusamus perferendis.</p>	
 						</div>
 					</li>
@@ -174,14 +185,14 @@
 		<div class="col-md-offset-1 col-md-4">
 			<div class="evento">
 				<h4>Evento</h4>
-				<form action="#"  role="form">
+				<form action="#"  role="form" method="post" id="ev">
 					<div class="input-group">
 					  <span class="input-group-addon"><span class="icon-calendar"></span></span>
-					  <input type="date" class="input-sm form-control" placeholder="Fecha Evento">
+					  <input type="date" class="input-sm form-control" placeholder="Fecha Evento" required>
 					</div>
 					<div class="input-group">
 					  <span class="input-group-addon icon-paragraph-left"></span>
-					  <input type="text" class="input-sm form-control" placeholder="Título">
+					  <input type="text" class="input-sm form-control" placeholder="Título" required>
 					</div>
 					<div class="input-group">
 					  <span class="input-group-addon icon-paperclip"></span>
@@ -209,15 +220,15 @@
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
         <h4 class="modal-title" id="myModalLabel">Ingreso</h4>
       </div>
-        <form role="form">
+        <form role="form" method="POST">
 	      <div class="modal-body">
 			  <div class="form-group">
 			    <label for="email">Email address</label>
-			    <input type="email" class="form-control" id="email" placeholder="Correo Electronico">
+			    <input type="email" class="form-control" id="email" placeholder="Correo Electronico" required>
 			  </div>
 			  <div class="form-group">
 			    <label for="password">Password</label>
-			    <input type="password" class="form-control" id="password" placeholder="Contraseña">
+			    <input type="password" class="form-control" id="password" placeholder="Contraseña" required>
 			  </div>
 	      </div>
 	      <div class="modal-footer">
@@ -239,24 +250,24 @@
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
         <h4 class="modal-title" id="myModalLabel">Ingreso</h4>
       </div>
-        <form role="form">
+        <form role="form" method="POST" id="regForm">
 	      <div class="modal-body">
 			  <div class="form-group">
 			    <label for="email">Email</label>
-			    <input type="email" class="form-control" id="email" placeholder="Correo Electronico">
+			    <input type="email" class="form-control" id="email" placeholder="Correo Electronico" required>
 			  </div>
 			  <div class="form-group">
 			    <label for="password">Password</label>
-			    <input type="password" class="form-control" id="password" placeholder="Contraseña">
+			    <input type="password" class="form-control" id="password" placeholder="Contraseña" required>
 			  </div>
 			  <div class="form-group">
 			    <label for="password_confirmation">Confirmación</label>
-			    <input type="password" class="form-control" id="password" placeholder="Confirmacion de Contraseña">
+			    <input type="password" class="form-control" id="password" placeholder="Confirmacion de Contraseña" required>
 			  </div>
 
 			  <div class="form-group">
 			    <label for="equipo">Equipo favorito</label>
-			    <select class="form-control" name="equipo" id="equipo">
+			    <select class="form-control" name="equipo" id="equipo"  required>
 			    	<option selected disabled>Seleccione</option>
 			    	<option value="1">Equipo 1</option>
 			    	<option value="2">Equipo 2</option>

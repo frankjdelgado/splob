@@ -16,7 +16,7 @@
 <header>
 	<div class="container">
 		<div class="row">
-			<div class="col-md-6">
+			<div class="col-md-4">
 				<div class="logo">
 					<h1><a href="landing.html">gol</a></h1>
 				</div>
@@ -24,7 +24,12 @@
 					<h3><a href="http://www.fifa.com/worldcup/" target="_blank">World Cup 2014</a></h3>
 				</div>
 			</div>
-			<div class="col-md-6">
+			<div class="col-md-5">
+				<form action="" class="searchbox">
+					<input type="text" class="searchbox" placeholder="Busqueda" required>
+				</form>
+			</div>
+			<div class="col-md-3">
 				<ul class="sign pull-right">
 					<li><a data-toggle="modal" data-target="#reg">Registrarse</a></li>
 					<li><a data-toggle="modal" data-target="#login">Ingresar</a></li>
@@ -75,15 +80,15 @@
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
         <h4 class="modal-title" id="myModalLabel">Ingreso</h4>
       </div>
-        <form role="form">
+        <form role="form" method="POST" >
 	      <div class="modal-body">
 			  <div class="form-group">
 			    <label for="email">Email address</label>
-			    <input type="email" class="form-control" id="email" placeholder="Correo Electronico">
+			    <input type="email" class="form-control" id="email" placeholder="Correo Electronico" required>
 			  </div>
 			  <div class="form-group">
 			    <label for="password">Password</label>
-			    <input type="password" class="form-control" id="password" placeholder="Contraseña">
+			    <input type="password" class="form-control" id="password" placeholder="Contraseña" required>
 			  </div>
 	      </div>
 	      <div class="modal-footer">
@@ -96,7 +101,6 @@
 </div>
 
 
-
 <!-- Registro -->
 <div class="modal fade" id="reg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -105,24 +109,24 @@
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
         <h4 class="modal-title" id="myModalLabel">Ingreso</h4>
       </div>
-        <form role="form">
+        <form role="form" method="POST" >
 	      <div class="modal-body">
 			  <div class="form-group">
 			    <label for="email">Email</label>
-			    <input type="email" class="form-control" id="email" placeholder="Correo Electronico">
+			    <input type="email" class="form-control" id="email" placeholder="Correo Electronico" required>
 			  </div>
 			  <div class="form-group">
 			    <label for="password">Password</label>
-			    <input type="password" class="form-control" id="password" placeholder="Contraseña">
+			    <input type="password" class="form-control" id="password" placeholder="Contraseña" required>
 			  </div>
 			  <div class="form-group">
 			    <label for="password_confirmation">Confirmación</label>
-			    <input type="password" class="form-control" id="password" placeholder="Confirmacion de Contraseña">
+			    <input type="password" class="form-control" id="password" placeholder="Confirmacion de Contraseña" required>
 			  </div>
 
 			  <div class="form-group">
 			    <label for="equipo">Equipo favorito</label>
-			    <select class="form-control" name="equipo" id="equipo">
+			    <select class="form-control" name="equipo" id="equipo"  required>
 			    	<option selected disabled>Seleccione</option>
 			    	<option value="1">Equipo 1</option>
 			    	<option value="2">Equipo 2</option>
