@@ -49,7 +49,8 @@ function calendar(){
    }
   };
 
-  $('#calendar').fullCalendar(options);
+  if($('#calendar').length>0)
+    $('#calendar').fullCalendar(options);
 }
 
 

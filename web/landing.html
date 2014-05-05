@@ -62,7 +62,7 @@
 	</div>
 </header>
 
-<div class="container vs  box-wrapper">
+<div class="container vs box-wrapper">
 	<div class="row">
 		<div class="col-md-7">
 			<div class="alert alert-danger alert-dismissable ">
@@ -110,7 +110,10 @@
 						<span class="icon-bubble"></span>
 						<div class="feedContent">
 							<img src="img/profile.gif" alt="">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui, esse, voluptatem architecto excepturi alias iusto minus deserunt praesentium voluptatum aperiam optio vitae facere tempora eius autem veniam enim accusamus perferendis.</p>	
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui, esse, voluptatem architecto excepturi alias iusto minus deserunt praesentium voluptatum aperiam optio vitae facere tempora eius autem veniam enim accusamus perferendis.</p>
+							<div class="text-right">
+								<a href="post.html">Ver más</a>
+							</div>
 						</div>
 					</li>
 					<li>
@@ -210,84 +213,91 @@
 
 	<a href="#" class="icon-arrow-up back-to-top"></a>
 
-	<footer></footer>
-
-<!-- Login -->
-<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">Ingreso</h4>
-      </div>
-        <form role="form" method="POST">
-	      <div class="modal-body">
-			  <div class="form-group">
-			    <label for="email">Email address</label>
-			    <input type="email" class="form-control" id="email" placeholder="Correo Electronico" required>
-			  </div>
-			  <div class="form-group">
-			    <label for="password">Password</label>
-			    <input type="password" class="form-control" id="password" placeholder="Contraseña" required>
-			  </div>
+	<!-- Login -->
+	<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	        <h4 class="modal-title" id="myModalLabel">Ingreso</h4>
 	      </div>
-	      <div class="modal-footer">
-	        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-	        <button type="submit" class="btn btn-primary">Ingresar</button>
+	        <form role="form" method="POST">
+		      <div class="modal-body">
+				  <div class="form-group">
+				    <label for="email">Email address</label>
+				    <input type="email" class="form-control" id="email" placeholder="Correo Electronico" required>
+				  </div>
+				  <div class="form-group">
+				    <label for="password">Password</label>
+				    <input type="password" class="form-control" id="password" placeholder="Contraseña" required>
+				  </div>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+		        <button type="submit" class="btn btn-primary">Ingresar</button>
+		      </div>
+			</form>
+			
+			<div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="false" data-auto-logout-link="true"></div>
+			
+	    </div>
+	  </div>
+	</div>
+
+
+
+	<!-- Registro -->
+	<div class="modal fade" id="reg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	        <h4 class="modal-title" id="myModalLabel">Registro</h4>
 	      </div>
-		</form>
-    </div>
-  </div>
-</div>
+	      	
+	        <form role="form" method="POST" id="regForm">
+		      <div class="modal-body">
 
+					<div class="text-center">
+						<button class="btn btn-lg btn-facebook ">
+							<span class="icon-facebook"></span>
+							Registrate con Facebook
+						</button>
+			      	</div>
+					<hr><br>
+				  <div class="form-group">
+				    <label for="email">Email</label>
+				    <input type="email" class="form-control" id="email" placeholder="Correo Electronico" required>
+				  </div>
+				  <div class="form-group">
+				    <label for="username">Apodo</label>
+				    <input type="text" class="form-control" id="username" placeholder="Nombre de usuario" required>
+				  </div>
+				  <div class="form-group">
+				    <label for="password">Password</label>
+				    <input type="password" class="form-control" id="password" placeholder="Contraseña" required>
+				  </div>
+				  <div class="form-group">
+				    <label for="password_confirmation">Confirmación</label>
+				    <input type="password" class="form-control" id="password" placeholder="Confirmacion de Contraseña" required>
+				  </div>
 
-
-<!-- Registro -->
-<div class="modal fade" id="reg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">Ingreso</h4>
-      </div>
-        <form role="form" method="POST" id="regForm">
-	      <div class="modal-body">
-			  <div class="form-group">
-			    <label for="email">Email</label>
-			    <input type="email" class="form-control" id="email" placeholder="Correo Electronico" required>
-			  </div>
-			  <div class="form-group">
-			    <label for="password">Password</label>
-			    <input type="password" class="form-control" id="password" placeholder="Contraseña" required>
-			  </div>
-			  <div class="form-group">
-			    <label for="password_confirmation">Confirmación</label>
-			    <input type="password" class="form-control" id="password" placeholder="Confirmacion de Contraseña" required>
-			  </div>
-
-			  <div class="form-group">
-			    <label for="equipo">Equipo favorito</label>
-			    <select class="form-control" name="equipo" id="equipo"  required>
-			    	<option selected disabled>Seleccione</option>
-			    	<option value="1">Equipo 1</option>
-			    	<option value="2">Equipo 2</option>
-			    	<option value="3">Equipo 3</option>
-			    	<option value="4">Equipo 4</option>
-			    </select>
-			  </div>
-	      </div>
-	      <div class="modal-footer">
-	        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-	        <button type="submit" class="btn btn-primary">Registrarse</button>
-	      </div>
-		</form>
-    </div>
-  </div>
-</div>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+		        <a href="registro.html" class="btn btn-primary">Continuar</a>
+		        <!-- <button type="submit" class="btn btn-primary">Continuar</button> -->
+		      </div>
+			</form>
+	    </div>
+	  </div>
+	</div>
 
 
 	<script src="js/jquery-1.11.0.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/main.js"></script>
+
 </body>
+
 </html>
