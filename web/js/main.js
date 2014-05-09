@@ -1,13 +1,13 @@
 // Variables globales. Proxima pagina a cargar
 var page = 1;
 
-$(document).ready(function(){
-  smooth();
-  calendar();
-  postFeed();
+$(document).ready(function() {
+    smooth();
+    calendar();
+    postFeed();
 });
 
-function smooth(){
+function smooth() {
     var offset = 220;
     var duration = 500;
     $(window).scroll(function() {
@@ -17,7 +17,7 @@ function smooth(){
             $('.back-to-top').fadeOut(duration);
         }
     });
-    
+
     $('.back-to-top').click(function(event) {
         event.preventDefault();
         $('html, body').animate({scrollTop: 0}, duration);
@@ -25,135 +25,140 @@ function smooth(){
     });
 }
 
-function calendar(){
-  var options = {
-   allDayDefault:false,
-   header: {
-    left: 'prev,next today',
-    center: 'title',
-    right: 'month,agendaWeek,agendaDay'
-   },
-   timeFormat: {
-    agenda: 'h(:mm)t{ - h(:mm)t}',
-    '': 'h(:mm)t{-h(:mm)t }'
-   },
-   monthNames: ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" ],
-   monthNamesShort: ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'],
-   dayNames: [ 'Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
-   dayNamesShort: ['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'],
-   buttonText: {
-    today: 'hoy',
-    month: 'mes',
-    week: 'semana',
-    day: 'día'
-   }
-  };
+function calendar() {
+    var options = {
+        allDayDefault: false,
+        header: {
+            left: 'prev,next today',
+            center: 'title',
+            right: 'month,agendaWeek,agendaDay'
+        },
+        timeFormat: {
+            agenda: 'h(:mm)t{ - h(:mm)t}',
+            '': 'h(:mm)t{-h(:mm)t }'
+        },
+        monthNames: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"],
+        monthNamesShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+        dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+        dayNamesShort: ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'],
+        buttonText: {
+            today: 'hoy',
+            month: 'mes',
+            week: 'semana',
+            day: 'día'
+        }
+    };
 
-  if($('#calendar').length>0)
-    $('#calendar').fullCalendar(options);
+    if ($('#calendar').length > 0)
+        $('#calendar').fullCalendar(options);
 }
 
 
 // Ajax methods
 
 // Registrarse
-function postReg(){
+function postReg() {
 
-  var frm = $('#reg form');
+    //TODO validacion de los campos
+    var frm = $('#reg form');
 
-  $(document).on('click','#reg',function(){
-    $.ajax({
-      type: frm.attr('method'),
-      url: frm.attr('action'),
-      data: frm.serialize(),
-      success: function (data) {
-      },
-      error: function(){
-        $("#error .alert-danger").toggleClass('hide');
-      }
-    });
-  });
-
+    //FIXME esto toca modificarlo
+    /* $(document).on('click', '#reg', function() {
+     $.ajax({
+     type: frm.attr('method'),
+     url: frm.attr('action'),
+     data: frm.serialize(),
+     success: function(data) {
+     },
+     error: function() {
+     $("#error .alert-danger").toggleClass('hide');
+     }
+     });
+     });*/
+    frm.attr("action","registrarUsuario");
+    frm.submit();
+    frm.attr("action","");
 }
-
+//llamada al registro
+$('#regSubmit').on("click", postReg);
 
 // Login
-function postLogin(){
+function postLogin() {
 
-  var frm = $('#login form');
+    var frm = $('#login form');
 
-  $(document).on('click','#login',function(){
-    $.ajax({
-      type: frm.attr('method'),
-      url: frm.attr('action'),
-      data: frm.serialize(),
-      success: function (data) {
-      },
-      error: function(){
-        $("#error .alert-danger").toggleClass('hide');
-      }
+    $(document).on('click', '#login', function() {
+        $.ajax({
+            type: frm.attr('method'),
+            url: frm.attr('action'),
+            data: frm.serialize(),
+            success: function(data) {
+            },
+            error: function() {
+                $("#error .alert-danger").toggleClass('hide');
+            }
+        });
     });
-  });
 
 }
 
 
 // Feeds
-function getFeeds(){
-  // request de datos
-  $.ajax({
-      type: "GET",
-      // url: URL+Parametros
-      dataType: "json",
-      success: function (json) {
-        setFeeds(json,'feeds');
-      }
+function getFeeds() {
+    // request de datos
+    $.ajax({
+        type: "GET",
+        // url: URL+Parametros
+        dataType: "json",
+        success: function(json) {
+            setFeeds(json, 'feeds');
+        }
     });
-  // Proxima pagina para siguiente request
-  page++;
+    // Proxima pagina para siguiente request
+    page++;
 }
 
-function postFeed(){
+function postFeed() {
 
-  var frm = $('#feed');
+    var frm = $('#feed');
 
-  $(document).on('click','#feed',function(){
-    $.ajax({
-      type: frm.attr('method'),
-      url: frm.attr('action'),
-      data: frm.serialize(),
-      success: function (data) {
-      },
-      error: function(){
-        $("#error .alert-danger").toggleClass('hide');
-      }
+    $(document).on('click', '#feed', function() {
+        $.ajax({
+            type: frm.attr('method'),
+            url: frm.attr('action'),
+            data: frm.serialize(),
+            success: function(data) {
+            },
+            error: function() {
+                $("#error .alert-danger").toggleClass('hide');
+            }
+        });
     });
-  });
 
 }
 
 // Evento
-function getEvent(){
+function getEvent() {
 
 }
 
 
-function postEvent(){
+function postEvent() {
 
-  var frm = $('#ev');
+    var frm = $('#ev');
 
-  $(document).on('click','#ev',function(){
-    $.ajax({
-      type: frm.attr('method'),
-      url: frm.attr('action'),
-      data: frm.serialize(),
-      success: function (data) {
-      },
-      error: function(){
-        $("#error .alert-danger").toggleClass('hide');
-      }
+    $(document).on('click', '#ev', function() {
+        $.ajax({
+            type: frm.attr('method'),
+            url: frm.attr('action'),
+            data: frm.serialize(),
+            success: function(data) {
+            },
+            error: function() {
+                $("#error .alert-danger").toggleClass('hide');
+            }
+        });
     });
-  });
 }
 
 // Publicacion
@@ -162,21 +167,21 @@ function postEvent(){
 // Helpers
 
 // Insertar Feed en html
-function setFeeds(json,parent){
+function setFeeds(json, parent) {
 
-  var i,n=json.length;
+    var i, n = json.length;
 
-  // Solo imprimir data si el resultado del get devolvio objetos
-  if( n > 0){
-    parent = document.getElementById(parent);
-    for(i=0;i<n;i++){
-      parent.innerHTML += setDom(json[i].id,json[i].content,json[i].username,json[i].img);
+    // Solo imprimir data si el resultado del get devolvio objetos
+    if (n > 0) {
+        parent = document.getElementById(parent);
+        for (i = 0; i < n; i++) {
+            parent.innerHTML += setDom(json[i].id, json[i].content, json[i].username, json[i].img);
+        }
     }
-  }
 }
 
 // armar dom con contenido
-function setDom(id,content,username,img){
-  var dom = '<li><div class="timeline"></div><span class="icon-bubble"></span><div class="feedContent"><p>'+content+'</p><img src="'+img+'" alt=""></div></li>';
-  return dom;
+function setDom(id, content, username, img) {
+    var dom = '<li><div class="timeline"></div><span class="icon-bubble"></span><div class="feedContent"><p>' + content + '</p><img src="' + img + '" alt=""></div></li>';
+    return dom;
 }

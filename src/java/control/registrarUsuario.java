@@ -14,6 +14,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.TUsuario;
 
 /**
  *
@@ -32,20 +33,17 @@ public class registrarUsuario extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //response.setContentType("text/html;charset=UTF-8");
         
-        
-        
-        
-        
-        
-        
+        //TODO todo el proceso de intertar al tipo nuevo
         EntityManagerFactory emf =
            (EntityManagerFactory)getServletContext().getAttribute("emf");
         EntityManager em = emf.createEntityManager();
+        TUsuario u = new TUsuario();
+        u.setAlias(request.getParameter("username"));
+        u.setEmail(request.getParameter("email"));
+        u.setPassword(request.getParameter("password"));
         
-        
-        
+        response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
             /* TODO output your page here. You may use following sample code. */
@@ -55,7 +53,12 @@ public class registrarUsuario extends HttpServlet {
             out.println("<title>Servlet registrarUsuario</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet registrarUsuario at " + request.getContextPath() + "</h1>");
+            //out.println("<h1>Servlet registrarUsuario at " + request.getContextPath() + "</h1>");
+            out.println(request.getAttributeNames());
+            out.println(request.getParameter("email"));
+            out.println(request.getParameter("username"));
+            out.println(request.getParameter("password"));
+            out.println(request.getParameter("password2"));
             out.println("</body>");
             out.println("</html>");
         } finally {
@@ -63,7 +66,6 @@ public class registrarUsuario extends HttpServlet {
         }
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *
@@ -75,7 +77,8 @@ public class registrarUsuario extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        //processRequest(request, response);
+        //TODO informar de uso incorrecto o retornar al inicio
     }
 
     /**
@@ -89,6 +92,7 @@ public class registrarUsuario extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        //TODO Validar los datos de entrada
         processRequest(request, response);
     }
 

@@ -59,28 +59,7 @@ public class despachador extends HttpServlet {
                 em.getTransaction().rollback();
             em.close();
         }
-        
-//        response.setContentType("text/html;charset=UTF-8");
-//        PrintWriter out = response.getWriter();
-//        try {
-//            /* TODO output your page here. You may use following sample code. */
-//            out.println("<!DOCTYPE html>");
-//            out.println("<html>");
-//            out.println("<head>");
-//            out.println("<title>Servlet despachador</title>");            
-//            out.println("</head>");
-//            out.println("<body>");
-//            out.println("<h1>Servlet despachador at " + request.getContextPath() + "</h1>");
-//            out.println("<h1>Servlet despachador at " + request.getMethod() + "</h1>");
-//            List<Usuarios> list2 = (List<Usuarios>)request.getAttribute("lista");
-//            for (Usuarios user : list2){
-//            out.println("usuario: "+user.getAlias());
-//            }
-//            out.println("</body>");
-//            out.println("</html>");
-//        } finally {
-//            out.close();
-//        }
+ 
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
