@@ -133,11 +133,6 @@ function postFeed(){
 }
 
 // Evento
-function getEvent(){
-
-}
-
-
 function postEvent(){
 
   var frm = $('#ev');

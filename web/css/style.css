@@ -356,3 +356,10 @@ div.logo{
 	-o-transition: all 300ms ease;
 	transition: all 300ms ease;
 }
+.dropdown a:after,.dropdown a:before{
+	display:none;
+}
+.dropdown-menu li{
+	display:block;
+	padding-left: 0 !important;
+}
