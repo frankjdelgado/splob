@@ -1,0 +1,44 @@
+<div class="modal fade" id="reg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Registro</h4>
+      </div>
+      	
+        <form role="form" method="POST" id="regForm">
+	      <div class="modal-body">
+
+				<div class="text-center">
+					<button class="btn btn-lg btn-facebook ">
+						<span class="icon-facebook"></span>
+						Registrate con Facebook
+					</button>
+		      	</div>
+				<hr><br>
+			  <div class="form-group">
+			    <label for="email">Email</label>
+			    <input type="email" class="form-control" id="email" placeholder="Correo Electronico" required>
+			  </div>
+			  <div class="form-group">
+			    <label for="username">Apodo</label>
+			    <input type="text" class="form-control" id="username" placeholder="Nombre de usuario" required>
+			  </div>
+			  <div class="form-group">
+			    <label for="password">Password</label>
+			    <input type="password" class="form-control" id="password" placeholder="Contraseña" required>
+			  </div>
+			  <div class="form-group">
+			    <label for="password_confirmation">Confirmación</label>
+			    <input type="password" class="form-control" id="password" placeholder="Confirmacion de Contraseña" required>
+			  </div>
+
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+	        <a href="registro.html" class="btn btn-primary">Continuar</a>
+	      </div>
+		</form>
+    </div>
+  </div>
+</div>
