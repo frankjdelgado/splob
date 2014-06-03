@@ -1,20 +1,76 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
     <servlet>
-        <servlet-name>despachador</servlet-name>
-        <servlet-class>control.despachador</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>registrarUsuario</servlet-name>
         <servlet-class>control.registrarUsuario</servlet-class>
     </servlet>
-    <servlet-mapping>
-        <servlet-name>despachador</servlet-name>
-        <url-pattern>/despachador</url-pattern>
-    </servlet-mapping>
+    <servlet>
+        <servlet-name>ingresar</servlet-name>
+        <servlet-class>control.ingresar</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Index</servlet-name>
+        <servlet-class>control.index</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>cerrar</servlet-name>
+        <servlet-class>control.cerrar</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>actualizarUser</servlet-name>
+        <servlet-class>control.actualizarUser</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>perfil</servlet-name>
+        <servlet-class>control.perfil</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>recuperacion</servlet-name>
+        <servlet-class>control.recuperacion</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>crearpost</servlet-name>
+        <servlet-class>control.crearpost</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>crearevento</servlet-name>
+        <servlet-class>crearevento</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>registrarUsuario</servlet-name>
-        <url-pattern>/registrarUsuario</url-pattern>
+        <url-pattern>/RegistrarUsuario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ingresar</servlet-name>
+        <url-pattern>/IngresarUusario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Index</servlet-name>
+        <url-pattern>/Landing</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>cerrar</servlet-name>
+        <url-pattern>/CerrarSesion</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>actualizarUser</servlet-name>
+        <url-pattern>/ActualizarUsuario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>perfil</servlet-name>
+        <url-pattern>/Perfil</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>recuperacion</servlet-name>
+        <url-pattern>/Recuperacion</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>crearpost</servlet-name>
+        <url-pattern>/CrearPost</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>crearevento</servlet-name>
+        <url-pattern>/CrearEvento</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
@@ -22,7 +78,6 @@
         </session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file>landing.html</welcome-file>
-        <welcome-file>index.html</welcome-file>
+        <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
 </web-app>

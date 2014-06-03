@@ -136,7 +136,7 @@ public class TUsuario implements Serializable {
 
     @Override
     public String toString() {
-        return "model.TUsuario[ id=" + id + " ]";
+        return "model.TUsuario[ id=" + id + ", alias="+ alias + ", email="+ email + " ]";
     }
     
 }

@@ -3,17 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package control;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import model.TUsuario;
 
 /**
@@ -23,8 +22,7 @@ import model.TUsuario;
 public class registrarUsuario extends HttpServlet {
 
     /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
      *
      * @param request servlet request
      * @param response servlet response
@@ -33,37 +31,70 @@ public class registrarUsuario extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        //TODO todo el proceso de intertar al tipo nuevo
-        EntityManagerFactory emf =
-           (EntityManagerFactory)getServletContext().getAttribute("emf");
+
+        //obtengo el em
+        EntityManagerFactory emf = (EntityManagerFactory) getServletContext().getAttribute("emf");
         EntityManager em = emf.createEntityManager();
+
+        //creo al ususario
         TUsuario u = new TUsuario();
-        u.setAlias(request.getParameter("username"));
-        u.setEmail(request.getParameter("email"));
-        u.setPassword(request.getParameter("password"));
-        
-        response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
-        try {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet registrarUsuario</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            //out.println("<h1>Servlet registrarUsuario at " + request.getContextPath() + "</h1>");
-            out.println(request.getAttributeNames());
-            out.println(request.getParameter("email"));
-            out.println(request.getParameter("username"));
-            out.println(request.getParameter("password"));
-            out.println(request.getParameter("password2"));
-            out.println("</body>");
-            out.println("</html>");
-        } finally {
-            out.close();
+        String error = "";
+        if (request.getParameter("username").matches("[a-zA-z0-9][a-zA-z0-9]{3,}")) {
+            u.setAlias(request.getParameter("username"));
+        } else {
+            error = "<strong>Error de Registro, apodo invalido.</strong> Debe ser de empezar con una letra y tener un largo mayor o igual a 3.";
+            request.setAttribute("myerror", error);
+            request.getRequestDispatcher("/index.jsp").forward(request, response);
+            return;
         }
+        if (request.getParameter("email").matches("^[_A-Za-z0-9-+]+(.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(.[A-Za-z0-9]+)*(.[A-Za-z]{2,})$")) {
+            u.setEmail(request.getParameter("email"));
+        } else {
+            error = "<strong>Error de Registro, email invalido.</strong> Debe ingresar un email valido.";
+            request.setAttribute("myerror", error);
+            request.getRequestDispatcher("/index.jsp").forward(request, response);
+            return;
+        }
+        if (request.getParameter("password").equals(request.getParameter("password2")) && request.getParameter("password").length()>0) {
+            u.setPassword(Herramientas.Sha256(request.getParameter("password")));
+        } else {
+            error = "<strong>Error de Registro, fallo confirmación de contraseña.</strong>";
+            request.setAttribute("myerror", error);
+            request.getRequestDispatcher("/index.jsp").forward(request, response);
+            return;
+        }
+
+        if (Herramientas.BuscarPorUsername(em, u.getAlias()) == null) {
+            if (Herramientas.BuscarPorEmail(em, u.getEmail()) == null) {
+                try {
+                    em.getTransaction().begin();
+                    em.persist(u); //em.merge(u); for updates
+                    em.flush();
+                    em.getTransaction().commit();
+
+                    //aca mandar a
+                    HttpSession sesion = request.getSession();
+                    sesion.setAttribute("usuario", u);
+                    //response.sendRedirect("AdministracionUsuario.mvc");
+                    request.getServletContext().log("el usuario insertado es:" + u);
+                    request.getRequestDispatcher("/perfil.jsp").forward(request, response);
+                } catch (Exception e) {
+                    error = "<strong>Error de Registro, fallo al guardar.</strong>";
+                    request.setAttribute("myerror", error);
+                    request.getRequestDispatcher("/index.jsp").forward(request, response);
+                    request.getServletContext().log("fallo en registro ", e);
+                }
+            } else {
+                error = "<strong>Error de Registro, email ya registrado.</strong>";
+                request.setAttribute("myerror", error);
+                request.getRequestDispatcher("/index.jsp").forward(request, response);
+            }
+        } else {
+            error = "<strong>Error de Registro, alias ya registrado.</strong>";
+            request.setAttribute("myerror", error);
+            request.getRequestDispatcher("/index.jsp").forward(request, response);
+        }
+
     }
 
     /**

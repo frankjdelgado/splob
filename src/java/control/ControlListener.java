@@ -6,34 +6,39 @@
 
 package control;
 
+import java.util.List;
+import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
+import model.TEquipo;
 
 /**
  * Web application lifecycle listener.
  *
- * @author Marvin
+ * @author marvin
  */
 @WebListener()
-public class usuariosListener implements ServletContextListener {
+public class ControlListener implements ServletContextListener {
 
     @Override
     public void contextInitialized(ServletContextEvent sce) {
-        EntityManagerFactory emf =
-            Persistence.createEntityManagerFactory("splobPU");
-        sce.getServletContext().setAttribute("emf", emf);
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("splobPU");
         
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+ 
+        EntityManager em = emf.createEntityManager();
+        List<TEquipo> equipos = em.createNamedQuery("TEquipo.findAll").getResultList();
+        sce.getServletContext().setAttribute("emf", emf);
+        sce.getServletContext().setAttribute("equipos", equipos);
+        
     }
 
     @Override
     public void contextDestroyed(ServletContextEvent sce) {
-        EntityManagerFactory emf =
-            (EntityManagerFactory)sce.getServletContext().getAttribute("emf");
+        EntityManagerFactory emf = (EntityManagerFactory)sce.getServletContext().getAttribute("emf");
         emf.close();
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    
 }

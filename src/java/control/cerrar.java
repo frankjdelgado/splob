@@ -3,29 +3,24 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package control;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.TUsuario;
+import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author Marvin
+ * @author marvin
  */
-public class despachador extends HttpServlet {
+public class cerrar extends HttpServlet {
 
     /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
      *
      * @param request servlet request
      * @param response servlet response
@@ -34,32 +29,9 @@ public class despachador extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        EntityManagerFactory emf =
-           (EntityManagerFactory)getServletContext().getAttribute("emf");
-        EntityManager em = emf.createEntityManager();
-        
-        try {
-            // Handle a new guest (if any):
-//            String name = request.getParameter("name");
-//            if (name != null) {
-//                em.getTransaction().begin();
-//                em.persist(new Guest(name));
-//                em.getTransaction().commit();
-//            }
- 
-            // Display the list of guests:
-            List<TUsuario> list = em.createNamedQuery("TUsuario.findAll").getResultList();
-            request.setAttribute("lista", list);
-            request.getRequestDispatcher("/usuarios_json.jsp").forward(request, response);
-            response.setContentType("application/json; charset=UTF-8");
-        } finally {
-            // Close the database connection:
-            if (em.getTransaction().isActive())
-                em.getTransaction().rollback();
-            em.close();
-        }
- 
+        HttpSession sesion = request.getSession();
+        sesion.setAttribute("usuario", null);
+        this.getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
