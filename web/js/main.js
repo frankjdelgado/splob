@@ -5,6 +5,7 @@ $(document).ready(function(){
   smooth();
   calendar();
   postFeed();
+  bottom();
 });
 
 function smooth(){
@@ -97,13 +98,22 @@ function postLogin(){
 
 }
 
+// Obtener feeds con scroll
+function bottom(){
+  window.onscroll = function(ev) {
+      if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+          getFeeds();
+      }
+  };
+}
+
 
 // Feeds
 function getFeeds(){
   // request de datos
   $.ajax({
       type: "GET",
-      // url: URL+Parametros
+      url: //url aqui
       dataType: "json",
       success: function (json) {
         setFeeds(json,'feeds');
