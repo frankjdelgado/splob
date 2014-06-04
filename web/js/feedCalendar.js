@@ -1,8 +1,47 @@
 $(document).ready(function(){
+
+
+   	var options = {
+	   allDayDefault:false,
+	   header: {
+	    left: 'prev,next today',
+	    center: 'title',
+	    right: 'month,agendaWeek,agendaDay'
+	   },
+	   timeFormat: {
+	    agenda: 'h(:mm)t{ - h(:mm)t}',
+	    '': 'h(:mm)t{-h(:mm)t }'
+	   },
+	   monthNames: ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" ],
+	   monthNamesShort: ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'],
+	   dayNames: [ 'Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+	   dayNamesShort: ['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'],
+	   buttonText: {
+	    today: 'hoy',
+	    month: 'mes',
+	    week: 'semana',
+	    day: 'día'
+	   },
+	   events: [
+			{
+			    title: 'Event1',
+			    start: '2014-06-03',
+			}
+		]
+
+	};
+    $('#calendar').fullCalendar(options);
+
+
   // getEvento();
   // getFeedEvento();
 });
 
+function getFeedEvento(){
+	$('#calendar').fullCalendar({
+	    events: [{title: 'Event1',start: '2014-06-04', url: 'http://www.google.com/your_feed_url/'}]
+	});
+}
 function getEvento(){
   // request de eventos
   $.ajax({
