@@ -141,14 +141,14 @@ function setFeeds(json, parent) {
 function setDom(id, content, username, img, icon) {
     var dom;
     if (img === "null")
-            dom = '<li><div class = "timeline" > </div><div class = "' + icon + '" ></div><div class = "feedContent" ><div class = "evento-desc" ><p> '+content+' </p><div class = "text-right" ><a href="post.html">Ver más</a>';
+            dom = '<li><div class = "timeline" > </div><div class = "' + icon + '" ></div><div class = "feedContent" ><div class = "evento-desc" ><p> '+content+' </p><div class = "text-right" ><a href="Publicacion?id='+id+'">Ver más</a>';
             else
-            dom = '<li><div class = "timeline" > </div><div class = "' + icon + '" ></div><div class = "feedContent" ><div class = "evento-desc" ><img src = "img/profile.gif" alt = "" ><p> '+content+' </p><div class = "text-right" ><a href="post.html">Ver más</a>';
+            dom = '<li><div class = "timeline" > </div><div class = "' + icon + '" ></div><div class = "feedContent" ><div class = "evento-desc" ><img src = "img/profile.gif" alt = "" ><p> '+content+' </p><div class = "text-right" ><a href="Publicacion?id='+id+'">Ver más</a>';
             
             if (username)
                 dom += '<button class = "btn btn-default btn-sm" > Editar </button></div></div><form action = "EditarPost" class = "evento-edit hide" method="POST"><div class = "input-group col-md-12" ><input type = "file" class = "input-sm form-control" accept = "image/*" name = "imagen" value = "'+img+'" >'+
                     '</div><div class = "input-group col-md-12" ><textarea name = "contenido" id = "" cols = "30" rows = "5" class = "input-sm form-control" placeholder = "Descripción" required name = "contenido">'+content+'</textarea></div><input type = "hidden" name = "id" value = "'+id+'" >'+
-                    '<div class = "text-right" ><input name = "eliminar" type = "submit" value = "Guardar" class = "btn btn-danger btn-sm"><button type = "button" name = "guardar" class = "btn btn-info btn-sm">Cancelar</button></div></form>';
+                    '<div class = "text-right" ><input name = "eliminar" type = "submit" value = "Guardar" class = "btn btn-danger btn-sm"><button type = "button" id = "guardar" class = "btn btn-info btn-sm">Cancelar</button></div></form>';
             else
                 dom += '</div></div>';
             dom += '</div></li>';

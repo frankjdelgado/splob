@@ -105,8 +105,8 @@
             <div class="row">
                 <!-- Solo si esta login -->
                 <div class="col-md-7">
-                     <% if (user != null) {%>
-                     <div class="status">
+                    <% if (user != null) {%>
+                    <div class="status">
                         <div class="sectionTitle">
                             Comparte
                         </div>
@@ -120,7 +120,7 @@
                                         <textarea  class="form-control" name="contenido" id="" cols="30" rows="2" required></textarea>
                                     </div>
                                     <div class="form-group">
-                                    <input type="file" class="input-sm form-control" accept="image/*" name="imagen">
+                                        <input type="file" class="input-sm form-control" accept="image/*" name="imagen">
                                     </div>
                                 </div>
                                 <div class="inputWrapper text-right">
@@ -128,7 +128,7 @@
                                 </div>
                             </div>
                         </form>
-                        
+
                         <div class="clearfix"></div>
                     </div>
                     <%}%>
@@ -247,10 +247,10 @@
                                 <label for="equipo">Equipo favorito</label>
                                 <select class="form-control" name="equipo" id="equipo"  required>
                                     <option selected disabled>Seleccione</option>
-                                    <% List<TEquipo> li = (List<TEquipo>)getServletContext().getAttribute("equipos"); 
-                                        for (TEquipo e : li){
+                                    <% List<TEquipo> li = (List<TEquipo>) getServletContext().getAttribute("equipos");
+                                        for (TEquipo e : li) {
                                     %>
-                                    <option value="<%= e.getId()%>"><%= e.getPais() %></option>
+                                    <option value="<%= e.getId()%>"><%= e.getPais()%></option>
                                     <% }%>
                                 </select>
                             </div>
@@ -265,12 +265,13 @@
             </div>
         </div>
 
-
+        <script type="text/javascript"> var fechacalendario ="<%=request.getParameter("fecha")%>";</script>
         <script src="js/jquery-1.11.0.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/main.js"></script>
         <script src="js/eventos.js"></script>
-        
+        <script src="js/feedCalendar.js"></script>
+
     </body>
 
 </html>

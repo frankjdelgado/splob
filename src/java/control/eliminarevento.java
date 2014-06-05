@@ -8,11 +8,15 @@ package control;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.TPost;
+import model.TUsuario;
 
 /**
  *
@@ -31,22 +35,24 @@ public class eliminarevento extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
-        try {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet eliminarevento</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet eliminarevento at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        } finally {
-            out.close();
+        EntityManagerFactory emf = (EntityManagerFactory) getServletContext().getAttribute("emf");
+        EntityManager em = emf.createEntityManager();
+        TUsuario u = new TUsuario();
+        
+        if (!request.getParameter("id").isEmpty()){
+            
+            TPost a = em.find(TPost.class, Long.parseLong(request.getParameter("id")));
+            
+            em.getTransaction().begin();
+                em.remove(a);
+            em.getTransaction().commit();
+            request.setAttribute("exito", "<strong>Cambios guardados correctamente.</strong>");
+            request.getRequestDispatcher("/listaeventos.jsp").forward(request, response);
+            return;
         }
+        
+        request.setAttribute("myerror", "<strong>Error al eliminar el evento.</strong>");
+        request.getRequestDispatcher("/listaeventos.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -66,7 +66,7 @@ public class retornareventos extends HttpServlet {
 
         List<TPost> lista = (List<TPost>) em.createNamedQuery("TPost.findByFechaCalendario").setParameter("fechaCalendario", fecha).setFirstResult(offset).setMaxResults(8).getResultList();
 
-        this.getServletContext().log("tamaño de la lista:" + lista.size());
+        this.getServletContext().log("tamaño de la lista eventos:" + lista.size());
 //        this.getServletContext().log("elemento 1:" + lista.get(0));
 //        this.getServletContext().log("elemento 2:" + lista.get(1));
         out.print("[");
@@ -92,7 +92,7 @@ public class retornareventos extends HttpServlet {
             out.print("\"content\": \"" + tPost.getContenido() + "\",");
             out.print("\"img\": \"" + tPost.getImagen() + "\",");
             out.print("\"fecha\": \"" + pars.format(tPost.getFechaCalendario()) + "\",");
-            out.print("\"username\": " + (tPost.getUsuario().getId() == u.getId()) + "}");
+            out.print("\"username\": "+ (tPost.getUsuario().getId() == u.getId()) + "}");
             if (it.hasNext()) {
                 out.print(",");
             }
