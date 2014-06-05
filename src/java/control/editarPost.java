@@ -3,25 +3,27 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package control;
 
 import java.io.IOException;
-
+import java.io.PrintWriter;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.TPost;
-import java.util.Date;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
 import model.TUsuario;
 
 /**
  *
  * @author marvin
  */
-public class crearpost extends HttpServlet {
+@WebServlet(name = "editarPost", urlPatterns = {"/EditarPost"})
+public class editarPost extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -33,27 +35,26 @@ public class crearpost extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //this.getServletContext().log("log");
-        if (!request.getParameter("contenido").isEmpty()) {
-
-            Date dia = new Date();
-            TPost post = new TPost();
-
-            //this.getServletContext().log("fecha: " + (new SimpleDateFormat("dd/MM/yyyy").parse(request.getParameter("fecha"))));
-            post.setFechaCreacion(dia);
-            post.setContenido(request.getParameter("contenido"));
-            post.setImagen(request.getParameter("imagen"));
-            post.setTipo(false);
-            post.setUsuario((TUsuario) request.getSession().getAttribute("usuario"));
+        
+        EntityManagerFactory emf = (EntityManagerFactory) getServletContext().getAttribute("emf");
+        EntityManager em = emf.createEntityManager();
+        TUsuario u = new TUsuario();
+        
+        if (!request.getParameter("id").isEmpty()){
             
-            EntityManagerFactory emf = (EntityManagerFactory) getServletContext().getAttribute("emf");
-            EntityManager em = emf.createEntityManager();
-
+            TPost a = em.find(TPost.class, Long.parseLong(request.getParameter("id")));
+            
             em.getTransaction().begin();
-            em.persist(post);
+                a.setContenido(request.getParameter("contenido"));
+                a.setImagen(request.getParameter("imagen"));
             em.getTransaction().commit();
+            request.setAttribute("exito", "<strong>Cambios guardados correctamente.</strong>");
+            request.getRequestDispatcher("/index.jsp").forward(request, response);
+            return;
         }
-        response.sendRedirect("Publicaciones?pag=0");
+        
+        request.setAttribute("myerror", "<strong>Error al editar la publicacion, datos invalidos.</strong>");
+        request.getRequestDispatcher("/index.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

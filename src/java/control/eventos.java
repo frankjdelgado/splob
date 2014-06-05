@@ -3,25 +3,23 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package control;
 
 import java.io.IOException;
-
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.TPost;
-import java.util.Date;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import model.TUsuario;
 
 /**
  *
  * @author marvin
  */
-public class crearpost extends HttpServlet {
+@WebServlet(name = "eventos", urlPatterns = {"/Eventos"})
+public class eventos extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -33,27 +31,7 @@ public class crearpost extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //this.getServletContext().log("log");
-        if (!request.getParameter("contenido").isEmpty()) {
-
-            Date dia = new Date();
-            TPost post = new TPost();
-
-            //this.getServletContext().log("fecha: " + (new SimpleDateFormat("dd/MM/yyyy").parse(request.getParameter("fecha"))));
-            post.setFechaCreacion(dia);
-            post.setContenido(request.getParameter("contenido"));
-            post.setImagen(request.getParameter("imagen"));
-            post.setTipo(false);
-            post.setUsuario((TUsuario) request.getSession().getAttribute("usuario"));
-            
-            EntityManagerFactory emf = (EntityManagerFactory) getServletContext().getAttribute("emf");
-            EntityManager em = emf.createEntityManager();
-
-            em.getTransaction().begin();
-            em.persist(post);
-            em.getTransaction().commit();
-        }
-        response.sendRedirect("Publicaciones?pag=0");
+        this.getServletContext().getRequestDispatcher("listaeventos.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

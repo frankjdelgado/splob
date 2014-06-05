@@ -3,11 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package model;
 
 import java.io.Serializable;
-import java.util.Collection;
 import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -19,56 +17,51 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author Marvin
+ * @author marvin
  */
 @Entity
-@Table(name = "t_post", catalog = "ati_proyecto", schema = "")
+@Table(name = "t_post")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "TPost.findAll", query = "SELECT t FROM TPost t"),
     @NamedQuery(name = "TPost.findById", query = "SELECT t FROM TPost t WHERE t.id = :id"),
-    @NamedQuery(name = "TPost.findByTitulo", query = "SELECT t FROM TPost t WHERE t.titulo = :titulo"),
+    @NamedQuery(name = "TPost.findByImagen", query = "SELECT t FROM TPost t WHERE t.imagen = :imagen"),
     @NamedQuery(name = "TPost.findByContenido", query = "SELECT t FROM TPost t WHERE t.contenido = :contenido"),
     @NamedQuery(name = "TPost.findByTipo", query = "SELECT t FROM TPost t WHERE t.tipo = :tipo"),
     @NamedQuery(name = "TPost.findByFechaCreacion", query = "SELECT t FROM TPost t WHERE t.fechaCreacion = :fechaCreacion"),
-    @NamedQuery(name = "TPost.findByFechaInicio", query = "SELECT t FROM TPost t WHERE t.fechaInicio = :fechaInicio"),
-    @NamedQuery(name = "TPost.findByFechaFin", query = "SELECT t FROM TPost t WHERE t.fechaFin = :fechaFin")})
+    @NamedQuery(name = "TPost.findByFechaCalendario", query = "SELECT t FROM TPost t WHERE t.fechaCalendario = :fechaCalendario ORDER BY t.fechaCreacion DESC"),
+    @NamedQuery(name = "TPost.findByTipoOrderDesc", query = "SELECT t FROM TPost t WHERE t.tipo = :tipo ORDER BY t.fechaCreacion DESC"),
+    @NamedQuery(name = "TPost.findByfindByFechaCalendarioOrderDesc", query = "SELECT t FROM TPost t WHERE t.fechaCalendario = :fechaCalendario ORDER BY t.fechaCreacion DESC"),})
 public class TPost implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "id", nullable = false)
+    @Column(name = "id")
     private Long id;
+    @Size(max = 1024)
+    @Column(name = "imagen")
+    private String imagen;
     @Size(max = 255)
-    @Column(name = "titulo", length = 255)
-    private String titulo;
-    @Size(max = 255)
-    @Column(name = "contenido", length = 255)
+    @Column(name = "contenido")
     private String contenido;
     @Column(name = "tipo")
     private Boolean tipo;
     @Column(name = "fecha_creacion")
     @Temporal(TemporalType.TIMESTAMP)
     private Date fechaCreacion;
-    @Column(name = "fecha_inicio")
+    @Column(name = "fecha_calendario")
     @Temporal(TemporalType.TIMESTAMP)
-    private Date fechaInicio;
-    @Column(name = "fecha_fin")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date fechaFin;
-    @OneToMany(mappedBy = "post")
-    private Collection<TPostCategoria> tPostCategoriaCollection;
+    private Date fechaCalendario;
     @JoinColumn(name = "usuario", referencedColumnName = "id")
     @ManyToOne
     private TUsuario usuario;
@@ -88,12 +81,12 @@ public class TPost implements Serializable {
         this.id = id;
     }
 
-    public String getTitulo() {
-        return titulo;
+    public String getImagen() {
+        return imagen;
     }
 
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
     }
 
     public String getContenido() {
@@ -120,29 +113,12 @@ public class TPost implements Serializable {
         this.fechaCreacion = fechaCreacion;
     }
 
-    public Date getFechaInicio() {
-        return fechaInicio;
+    public Date getFechaCalendario() {
+        return fechaCalendario;
     }
 
-    public void setFechaInicio(Date fechaInicio) {
-        this.fechaInicio = fechaInicio;
-    }
-
-    public Date getFechaFin() {
-        return fechaFin;
-    }
-
-    public void setFechaFin(Date fechaFin) {
-        this.fechaFin = fechaFin;
-    }
-
-    @XmlTransient
-    public Collection<TPostCategoria> getTPostCategoriaCollection() {
-        return tPostCategoriaCollection;
-    }
-
-    public void setTPostCategoriaCollection(Collection<TPostCategoria> tPostCategoriaCollection) {
-        this.tPostCategoriaCollection = tPostCategoriaCollection;
+    public void setFechaCalendario(Date fechaCalendario) {
+        this.fechaCalendario = fechaCalendario;
     }
 
     public TUsuario getUsuario() {
@@ -177,5 +153,5 @@ public class TPost implements Serializable {
     public String toString() {
         return "model.TPost[ id=" + id + " ]";
     }
-    
+
 }

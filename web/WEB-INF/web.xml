@@ -34,7 +34,7 @@
     </servlet>
     <servlet>
         <servlet-name>crearevento</servlet-name>
-        <servlet-class>crearevento</servlet-class>
+        <servlet-class>control.crearevento</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>registrarUsuario</servlet-name>

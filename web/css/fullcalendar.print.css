@@ -28,5 +28,6 @@
 .fc-event .ui-resizable-handle {
 	display: none !important;
 	}
+.fc-event-time{display: none !important;}
 	
 	

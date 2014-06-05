@@ -586,4 +586,5 @@ table.fc-border-separate {
 	_overflow: hidden;
 	}
 	
-	
+//extra
+.fc-event-time{display: none!important;}

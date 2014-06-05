@@ -35,26 +35,31 @@ public class ingresar extends HttpServlet {
         EntityManagerFactory emf = (EntityManagerFactory) getServletContext().getAttribute("emf");
         EntityManager em = emf.createEntityManager();
         TUsuario u = new TUsuario();
-        context.log("verificar el email");
+//        context.log("verificar el email");
         if (request.getParameter("email").matches("^[_A-Za-z0-9-+]+(.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(.[A-Za-z0-9]+)*(.[A-Za-z]{2,})$")) {
-            context.log("Buscando por email");
+//            context.log("Buscando por email");
             u = Herramientas.BuscarPorEmail(em, request.getParameter("email"));
-            if (u != null) {context.log("encontro algo");
-                if (u.getPassword().equalsIgnoreCase(Herramientas.Sha256(request.getParameter("password")))) {context.log("deberia ingresar");
+            if (u != null) {
+//            context.log("encontro algo");
+                if (u.getPassword().equalsIgnoreCase(Herramientas.Sha256(request.getParameter("password")))) {
+//                    context.log("deberia ingresar");
                     //creo HttpSession para el manejo de la session
                     HttpSession sesion = request.getSession();
                     sesion.setAttribute("usuario", u);
                     request.getRequestDispatcher("/index.jsp").forward(request, response);
-                } else {context.log("no da la clave igual");
+                } else {
+                    context.log("no da la clave igual");
                     request.setAttribute("myerror", "<strong>Error al iniciar sesión, Clave incorrecta.</strong>");
                     request.getRequestDispatcher("/index.jsp").forward(request, response);
                 }
-            } else {context.log("no se encontro nada");
+            } else {
+                context.log("no se encontro nada");
                 //redirir a inicio o mandar un json con error
                 request.setAttribute("myerror", "<strong>Error al iniciar sección, correo no valido.</strong>");
                 request.getRequestDispatcher("/index.jsp").forward(request, response);
             }
-        } else {context.log("email malo");
+        } else {
+            context.log("email malo");
             request.setAttribute("myerror", "<strong>Error al iniciar sesión, correo invalido.</strong> Debe ingresar un correo valido.");
             request.getRequestDispatcher("/index.jsp").forward(request, response);
         }

@@ -1,18 +1,19 @@
 <%-- 
-    Document   : index
-    Created on : 31/05/2014, 10:07:51 PM
+    Document   : post
+    Created on : 04/06/2014, 09:05:52 PM
     Author     : marvin
 --%>
+<%@page import="model.TPost"%>
 <%@page import="java.util.List"%>
 <%@page import="model.TEquipo"%>
 <%@page import="model.TUsuario"%>
-<% TUsuario user = (TUsuario) session.getAttribute("usuario"); %>
+<% TUsuario user = (TUsuario) session.getAttribute("usuario"); TPost publicidad = (TPost)request.getAttribute("publicidad"); %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!doctype html>
 <html lang="es">
     <head>
         <meta charset="UTF-8">
-        <title>gol | Landing</title>
+        <title>gol | Publicación</title>
         <link rel="stylesheet" href="css/bootstrap.css">
         <link href='http://fonts.googleapis.com/css?family=Swanky+and+Moo+Moo' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
@@ -85,88 +86,45 @@
 
         <div class="container vs box-wrapper">
             <div class="row">
-                <div class="col-md-7">
-                    <% if (request.getAttribute("myerror") != null) {%>
-                    <div class="alert alert-danger alert-dismissable ">
-                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                        <!--<strong>Warning!</strong> Al parecer hubo un error con tu solicitud =(-->
-                        <%=request.getAttribute("myerror")%>
-                    </div>
-                    <%}%>
-                    <% if (request.getAttribute("exito") != null) {%>
-                    <div class="alert alert-success alert-dismissable ">
-                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                        <%=request.getAttribute("exito")%>
-                    </div>
-                    <%}%>
-                </div>
-            </div>
-            <div class="row">
-                <!-- Solo si esta login -->
-                <div class="col-md-7">
-                     <% if (user != null) {%>
-                     <div class="status">
-                        <div class="sectionTitle">
-                            Comparte
-                        </div>
-                        <div class="profile">
-                            <img src="img/profile.gif" >
-                        </div>
-                        <form action="CrearPost" id="feed" method="POST">
-                            <div class="bubble">
-                                <div class="formWrapper">
-                                    <div class="form-group">
-                                        <textarea  class="form-control" name="contenido" id="" cols="30" rows="2" required></textarea>
-                                    </div>
-                                    <div class="form-group">
-                                    <input type="file" class="input-sm form-control" accept="image/*" name="imagen">
-                                    </div>
-                                </div>
-                                <div class="inputWrapper text-right">
-                                    <input type="submit" value="Enviar" class="btn-sm btn btn-default">
-                                </div>
-                            </div>
-                        </form>
-                        
-                        <div class="clearfix"></div>
-                    </div>
-                    <%}%>
-                    <div class="feedsWrapper">
-                        <div class="sectionTitle">
-                            Feeds
-                        </div>
-                        <ul class="feeds" id="feeds">
+                <div class="col-md-12">		
 
-                            
-                        </ul>	
+                    <div id="carousel-splob" class="carousel slide" data-ride="carousel">
+                        <!-- Indicators -->
+                        <ol class="carousel-indicators">
+                            <li data-target="#carousel-splob" data-slide-to="0" class="active"></li>
+                            <li data-target="#carousel-splob" data-slide-to="1"></li>
+                            <li data-target="#carousel-splob" data-slide-to="2"></li>
+                        </ol>
+
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner">
+                            <div class="item text-center">
+                                <img src="<%=publicidad.getImagen()%>">
+                            </div>
+                            <div class="item active text-center">
+                                <img src="http://placehold.it/900x450">
+                            </div>
+                            <div class="item text-center">
+                                <img src="http://placehold.it/900x450">
+                            </div>
+                        </div>
+
+                        <!-- Controls -->
+                        <a class="left carousel-control" href="#carousel-splob" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left"></span>
+                        </a>
+
+                        <a class="right carousel-control" href="#carousel-splob" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right"></span>
+                        </a>
+
                     </div>
                 </div>
 
-                <!-- Solo si esta login -->
-                <% if (user != null) {%>
-                <div class="col-md-offset-1 col-md-4">
-                    <div class="evento">
-                        <h4>Evento</h4>
-                        <form action="CrearEvento"  role="form" method="post" id="ev">
-                            <div class="input-group">
-                                <span class="input-group-addon"><span class="icon-calendar"></span></span>
-                                <input type="date" class="input-sm form-control" placeholder="Fecha Evento" required name="fecha">
-                            </div>
-                            <div class="input-group">
-                                <span class="input-group-addon icon-paragraph-left"></span>
-                                <textarea  class="form-control" name="contenido" id="" cols="30" rows="2" required></textarea>
-                            </div>
-                            <div class="input-group">
-                                <span class="input-group-addon icon-paperclip"></span>
-                                <input type="file" class="input-sm form-control" name="imagen">
-                            </div>
-                            <div class="text-right">
-                                <input type="submit" value="Publicar" class="btn btn-default btn-sm">
-                            </div>
-                        </form>
-                    </div>
+                <div class="col-md-12">
+                    <p><%=publicidad.getContenido()%></p>
                 </div>
-                <%}%>
+
             </div>
         </div>
 
@@ -247,10 +205,10 @@
                                 <label for="equipo">Equipo favorito</label>
                                 <select class="form-control" name="equipo" id="equipo"  required>
                                     <option selected disabled>Seleccione</option>
-                                    <% List<TEquipo> li = (List<TEquipo>)getServletContext().getAttribute("equipos"); 
-                                        for (TEquipo e : li){
+                                    <% List<TEquipo> li = (List<TEquipo>) getServletContext().getAttribute("equipos");
+                                        for (TEquipo e : li) {
                                     %>
-                                    <option value="<%= e.getId()%>"><%= e.getPais() %></option>
+                                    <option value="<%= e.getId()%>"><%= e.getPais()%></option>
                                     <% }%>
                                 </select>
                             </div>
@@ -269,8 +227,7 @@
         <script src="js/jquery-1.11.0.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/main.js"></script>
-        <script src="js/eventos.js"></script>
-        
+
     </body>
 
 </html>

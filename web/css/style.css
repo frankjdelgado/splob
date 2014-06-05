@@ -363,3 +363,18 @@ div.logo{
 	display:block;
 	padding-left: 0 !important;
 }
+
+textarea{
+	resize:none;
+}
+.evento-edit div{
+ margin-bottom: 0.8em;
+
+}
+.evento-lista ul li{
+	margin-bottom: 2em;
+}
+.user-options li{
+	float:left;
+	margin-right: 15px;
+}

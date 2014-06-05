@@ -1,8 +1,9 @@
 <%-- 
-    Document   : index
-    Created on : 31/05/2014, 10:07:51 PM
+    Document   : listaeventos
+    Created on : 04/06/2014, 11:05:38 PM
     Author     : marvin
 --%>
+
 <%@page import="java.util.List"%>
 <%@page import="model.TEquipo"%>
 <%@page import="model.TUsuario"%>
@@ -12,7 +13,7 @@
 <html lang="es">
     <head>
         <meta charset="UTF-8">
-        <title>gol | Landing</title>
+        <title>gol | Eventos</title>
         <link rel="stylesheet" href="css/bootstrap.css">
         <link href='http://fonts.googleapis.com/css?family=Swanky+and+Moo+Moo' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
@@ -135,9 +136,8 @@
                         <div class="sectionTitle">
                             Feeds
                         </div>
-                        <ul class="feeds" id="feeds">
+                        <ul class="feeds" id="feedEventos">
 
-                            
                         </ul>	
                     </div>
                 </div>

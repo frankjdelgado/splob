@@ -1,3 +1,5 @@
+package control;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -5,11 +7,19 @@
  */
 
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.TPost;
+import model.TUsuario;
 
 /**
  *
@@ -27,7 +37,34 @@ public class crearevento extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+        //this.getServletContext().log("log");
+        if (!request.getParameter("contenido").isEmpty()) {
+            try {
+                Date dia = new Date();
+                TPost post = new TPost();
+                
+                //this.getServletContext().log("fecha: " + (new SimpleDateFormat("dd/MM/yyyy").parse(request.getParameter("fecha"))));
+                post.setFechaCreacion(dia);
+                post.setContenido(request.getParameter("contenido"));
+                post.setImagen(request.getParameter("imagen"));
+                post.setUsuario((TUsuario) request.getSession().getAttribute("usuario"));
+                //this.getServletContext().log("fecha antes : " + request.getParameter("fecha"));
+                String tem = request.getParameter("fecha");
+                //this.getServletContext().log("fecha despues : " + tem);
+                post.setFechaCalendario(new SimpleDateFormat("yyyy-MM-dd").parse(tem));
+                post.setTipo(true);
+                
+                EntityManagerFactory emf = (EntityManagerFactory) getServletContext().getAttribute("emf");
+                EntityManager em = emf.createEntityManager();
+                
+                em.getTransaction().begin();
+                em.persist(post);
+                em.getTransaction().commit();
+            } catch (ParseException ex) {
+                Logger.getLogger(crearevento.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        response.sendRedirect("ContarEventos");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

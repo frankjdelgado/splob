@@ -4,11 +4,11 @@
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>model.TCategoria</class>
     <class>model.TEquipo</class>
-    <class>model.TPost</class>
     <class>model.TPostCategoria</class>
     <class>model.TUsuario</class>
     <class>model.TUsuarioEquipo</class>
     <class>model.VPostHashtag</class>
+    <class>model.TPost</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mariadb://localhost:3306/ati_proyecto?zeroDateTimeBehavior=convertToNull"/>
