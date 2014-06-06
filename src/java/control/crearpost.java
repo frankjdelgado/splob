@@ -53,7 +53,7 @@ public class crearpost extends HttpServlet {
             em.persist(post);
             em.getTransaction().commit();
         }
-        response.sendRedirect("Publicaciones?pag=0");
+        response.sendRedirect("Landing");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

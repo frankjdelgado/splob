@@ -64,7 +64,7 @@ public class crearevento extends HttpServlet {
                 Logger.getLogger(crearevento.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        response.sendRedirect("ContarEventos");
+        response.sendRedirect("Calendario");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
